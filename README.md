@@ -7,6 +7,12 @@ this website, namely spots, is a image sharing website for those looking to shar
     -HTML
     -CSS
     -Responsive Design
+
+## deployment
+this webpage is deployed to github pages
+
+link: https://prophet-of-tears.github.io/se_project_spots/
+
 ### Overview  
 
 * Intro  
