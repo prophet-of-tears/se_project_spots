@@ -1,5 +1,12 @@
 # Project 3: Spots
+a site for image uploading and sharing. 
+## description
+this website, namely spots, is a image sharing website for those looking to share thier expertise with the world. users will be allowed to provide their profession along with an avatar of themselves they will upload and organize their own image gallery with whatever they find most interesting.
 
+## tech stack
+    -HTML
+    -CSS
+    -Responsive Design
 ### Overview  
 
 * Intro  
