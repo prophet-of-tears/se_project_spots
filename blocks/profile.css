@@ -53,10 +53,15 @@
     font-size: 16px;
     line-height: 1;
     color: rgba(33, 33, 33, .7);
-    height: 16px;
+    height: 20px;
     border: none;
     background-color: #fcf5e5;
     text-align:start;
+}
+
+.profile__edit-btn:hover{
+    color:#a4a452;
+    transition: .5s;
 }
 
 .profile__add-btn{
@@ -70,6 +75,11 @@
     line-height: 1;
     color: #fcf5e5;
     background-color: #212121;
+}
+
+.profile__add-btn:hover{
+    background-color:rgba(164, 164, 82, .8);
+    transition: .5s ease-in-out;
 }
 
 .profile__btn-logo{
