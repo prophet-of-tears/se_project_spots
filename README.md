@@ -12,7 +12,10 @@ this website, namely spots, is a image sharing website for those looking to shar
 this webpage is deployed to github pages
 
 link: https://prophet-of-tears.github.io/se_project_spots/
+## video
+i also have a 10 min video on the project
 
+link: https://drive.google.com/file/d/1i2T6092OhngY8mzfDLTrM6oM3-qRYBjI/view?usp=drive_link
 ### Overview  
 
 * Intro  
