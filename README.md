@@ -7,6 +7,7 @@ this website, namely spots, is a image sharing website for those looking to shar
     -HTML
     -CSS
     -Responsive Design
+    -javascript
 
 ## deployment
 this webpage is deployed to github pages

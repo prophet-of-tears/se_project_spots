@@ -1,0 +1,118 @@
+.modal{
+    background-color: rgba(0, 0, 0, .5);
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    padding: 0 10px;
+}
+
+.modal__opened{
+    visibility: visible;
+}
+
+.modal__container{
+    background: #fff;
+    max-width: 730px;
+    width: 100%;
+    padding: 32px 50px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.modal__container-title{
+    margin: 0;
+    font-size: 32px;
+    line-height: 32px;
+    color: rgb(33, 33, 33);
+}
+
+.modal__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__label{
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(33, 33, 33, .7);
+}
+
+.modal__input{
+    max-width: 630px;
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    border-radius: 8px;
+    border: 1px rgba(33, 33, 33, .4) solid;
+    padding: 16px 12px;
+    cursor: pointer;
+}
+
+.modal__input:hover{
+    border-color:rgba(33, 33, 33, 1);
+}
+
+.modal__exit-btn{
+    position: absolute;
+    top: 32px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    background-image: url(../images/Close\ Icon.svg);
+    background-position: center;
+    background-color: rgb(255, 255, 255);
+    border:none;
+}
+
+.modal__exit-btn:hover{
+    cursor:pointer;
+}
+
+.modal__submit-btn{
+    width: 156px;
+    height: 52px;
+    margin: 32px 0 0;
+    font-size: 16px;
+    background-color: rgb(33, 33, 33);
+    border-radius: 8px;
+    color:#fff;
+}
+
+@media screen and (max-width: 627px){
+    .modal__container{
+        padding: 12px;
+    }
+
+    .modal__container-title{
+        font-size: 20px;
+        line-height: 20px;
+    }
+    .modal__label{
+        margin-top:24px;
+    }
+    .modal__input{
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .modal__exit-btn{
+        top: 0;
+        right: 0;
+        border-radius: 8px;
+    }
+    .modal__submit-btn{
+        width: 100%;
+        margin-top: 24px;
+    }
+}
