@@ -29,52 +29,21 @@
                     <img src="./images/plus.svg" alt="plus icon" class="profile__btn-logo">New post
                 </button>
             </section>
+           
             <section class="cards page__section">
                 <ul class="cards__list">
+                    <template id="card-template">
                     <li class="card">
-                        <img src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg" alt="Val Thorens" class="card__image">
+                        <img src="" alt="" class="card__image" id="card-image-content">
                         <div class="card__content">
-                            <h2 class="card__title">Val Thorens</h2>
+                            <h2 class="card__title"></h2>
                             <button type="button" class="card__like-btn"></button>
                         </div>
                     </li>
-                    <li class="card">
-                        <img src="./images/2-photo-by-ceiline-from-pexels.jpg" alt="Restaurant Terrace" class="card__image">
-                        <div class="card__content">
-                            <h2 class="card__title">Restaurant Terrace</h2>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg" alt="An outdoor cafe" class="card__image">
-                        <div class="card__content">
-                            <h2 class="card__title">An outdoor cafe</h2>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/4-photo-by-maurice-laschet-from-pexels.jpg" alt="A very long bridge, over the forest" class="card__image">
-                        <div class="card__content">
-                            <h2 class="card__title">A very long bridge, over the forest that keeps on bridgin'</h2>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg" alt="Tunnel with morning light" class="card__image">
-                        <div class="card__content">
-                            <h2 class="card__title">Tunnel with morning light</h2>
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
-                    <li class="card">
-                        <img src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg" alt="Mountain house" class="card__image">
-                        <div class="card__content">
-                            <h2 class="card__title">Mountain house</h2> 
-                            <button type="button" class="card__like-btn"></button>
-                        </div>
-                    </li>
+                    </template>
                 </ul>
             </section>
+           
         </main>
         <footer class="footer">
             <p class="footer__copywrite">2024 &copy; Spots</p>
@@ -83,16 +52,16 @@
             <div class="modal__container">
                 <h2 class="modal__container-title">Edit Profile</h2>
                 <form name="edit__profile" class="modal__form">
-                <label for="name" class="modal__label">
+                <label for="name-input" class="modal__label">
                      Name
-                    <input id="name" type="text" placeholder="Type your name" class="modal__input">
+                    <input id="name-input" type="text" placeholder="Type your name" class="modal__input">
                 </label>
-                <label for="description" class="modal__label"> 
+                <label for="description-input" class="modal__label"> 
                     description
-                    <input id="description" type="text" placeholder="describe yourself" class="modal__input">
+                    <input id="description-input" type="text" placeholder="describe yourself" class="modal__input">
                 </label>
                 <button type="submit" class="modal__exit-btn" id="exit-button"></button>
-                <button type="submit" class="modal__submit-btn">Save</button>
+                <button type="submit" class="modal__submit-btn" id="submit-button">Save</button>
                 </form>
             </div>
         </div>
