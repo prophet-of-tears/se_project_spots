@@ -1,7 +1,8 @@
 .page{
-    max-width: 1440px;
+    max-width: 100%;
     background-color: #fcf5e5;
     font-family: 'popins', Arial, Helvetica, sans-serif;
+    margin: 0 auto;
 }
 
 .page__section{

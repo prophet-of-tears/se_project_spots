@@ -39,11 +39,12 @@ function closeModal(){
 
 
 function handleProfileFormSubmit(evt) {
-  evt.preventDefault();
+ evt.preventDefault();
   nameOnPage.textContent = profileName.value;
   descriptionOnPage.textContent = profileDescription.value;
-  closeModal();
+  closeModal();  
 }
+
 
 modalExitButton.addEventListener("click", closeModal);
 profileEditButton.addEventListener( "click", openModal);
@@ -52,7 +53,6 @@ modalSubmit.addEventListener("submit", handleProfileFormSubmit);
 let templateElement = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
 
-
 function getCardElement(data){
   console.log(data);
 const cardElement = templateElement.content.querySelector(".card").cloneNode(true);
@@ -60,7 +60,7 @@ const cardName = cardElement.querySelector(".card__title");
 const cardsImage = cardElement.querySelector(".card__image").src = data.link;
 const cardsImageText = cardElement.querySelector("#card-image-content").alt = data.name;
 cardName.textContent = data.name;
-return cardElement;v
+return cardElement;
 }
 
 for (let i = 0; i < initialCards.length; i++){
