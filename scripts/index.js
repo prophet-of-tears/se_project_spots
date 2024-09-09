@@ -19,7 +19,7 @@ const modal = document.querySelector("#edit-profile-modal");
 
 const profileName = document.querySelector("#name-input");
 const profileDescription = document.querySelector("#description-input");
-const modalSubmit = document.querySelector("#submit-button");
+const modalSubmit = document.querySelector(".modal__form");
 const nameOnPage = document.querySelector(".profile__name");
 const descriptionOnPage = document.querySelector(".profile__description");
 
@@ -29,8 +29,6 @@ function openModal(){
   modal.classList.add("modal__opened");
 }
 
-
-
 const modalExitButton = document.querySelector("#exit-button");
 
 function closeModal(){
@@ -39,10 +37,10 @@ function closeModal(){
 
 
 function handleProfileFormSubmit(evt) {
- evt.preventDefault();
+  evt.preventDefault();
   nameOnPage.textContent = profileName.value;
   descriptionOnPage.textContent = profileDescription.value;
-  closeModal();  
+  closeModal();
 }
 
 
@@ -52,6 +50,8 @@ modalSubmit.addEventListener("submit", handleProfileFormSubmit);
 
 let templateElement = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+let cardElement = document.querySelector(".card");
+
 
 function getCardElement(data){
   console.log(data);
@@ -67,4 +67,3 @@ for (let i = 0; i < initialCards.length; i++){
    const cardsElement = getCardElement(initialCards[i]);
    cardsList.prepend(cardsElement);
 }
-console.log(cardElement);
