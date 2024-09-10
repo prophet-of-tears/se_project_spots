@@ -19,20 +19,20 @@ const modal = document.querySelector("#edit-profile-modal");
 
 const profileName = document.querySelector("#name-input");
 const profileDescription = document.querySelector("#description-input");
-const modalSubmit = document.querySelector(".modal__form");
-const nameOnPage = document.querySelector(".profile__name");
-const descriptionOnPage = document.querySelector(".profile__description");
+const profileForm = document.querySelector(".modal__form");
+const nameOnPage = document.querySelector("#profile-name");
+const descriptionOnPage = document.querySelector("#profile-description");
 
 function openModal(){
   profileName.value = nameOnPage.textContent;
   profileDescription.value = descriptionOnPage.textContent;
-  modal.classList.add("modal__opened");
+  modal.classList.add("modal_opened");
 }
 
 const modalExitButton = document.querySelector("#exit-button");
 
 function closeModal(){
-    modal.classList.remove("modal__opened");
+    modal.classList.remove("modal_opened");
 }
 
 
@@ -46,20 +46,24 @@ function handleProfileFormSubmit(evt) {
 
 modalExitButton.addEventListener("click", closeModal);
 profileEditButton.addEventListener( "click", openModal);
-modalSubmit.addEventListener("submit", handleProfileFormSubmit);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 
-let templateElement = document.querySelector("#card-template");
+const templateElement = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
-let cardElement = document.querySelector(".card");
+
 
 
 function getCardElement(data){
   console.log(data);
-const cardElement = templateElement.content.querySelector(".card").cloneNode(true);
+  const cardElement = templateElement
+  .content.querySelector(".card")
+  .cloneNode(true);
 const cardName = cardElement.querySelector(".card__title");
-const cardsImage = cardElement.querySelector(".card__image").src = data.link;
-const cardsImageText = cardElement.querySelector("#card-image-content").alt = data.name;
+const cardsImage = cardElement.querySelector(".card__image");
 cardName.textContent = data.name;
+cardsImage.alt = data.name;
+cardsImage.src = data.link;
+
 return cardElement;
 }
 
