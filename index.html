@@ -21,11 +21,11 @@
                 <div class="profile__column">
                     <h1 class="profile__name" id="profile-name">Bessie Coleman</h1>
                     <p class="profile__description" id="profile-description">Civil Aviator</p>
-                    <button class="profile__edit-btn" type="button">
+                    <button class="profile__edit-btn" id="edit-modal" type="button">
                         <img src="./images/pencil.svg" alt="pencil icon">edit profile
                     </button>
                 </div>
-                <button class="profile__add-btn" type="button">
+                <button class="profile__add-btn" id="new-post" type="button">
                     <img src="./images/plus.svg" alt="plus icon" class="profile__btn-logo">New post
                 </button>
             </section>
@@ -34,9 +34,9 @@
                 <ul class="cards__list">
                     <template id="card-template">
                     <li class="card">
-                        <img src="" alt="" class="card__image" id="card__image-content">
+                        <img src="" alt="" class="card__image" id="card_image_content">
                         <div class="card__content">
-                            <h2 class="card__title"></h2>
+                            <h2 class="card__title" id="card_title" ></h2>
                             <button type="button" class="card__like-btn"></button>
                         </div>
                     </li>
@@ -51,7 +51,7 @@
         <div class="modal" id="edit-profile-modal">
             <div class="modal__container">
                 <h2 class="modal__container-title">Edit Profile</h2>
-                <form name="edit__profile" class="modal__form">
+                <form name="edit__profile" class="modal__form" id="edit-profile-modal">
                 <label for="name-input" class="modal__label">
                      Name
                     <input id="name-input" type="text" placeholder="Type your name" class="modal__input">
@@ -62,6 +62,29 @@
                 </label>
                 <button type="submit" class="modal__exit-btn" id="exit-button"></button>
                 <button type="submit" class="modal__submit-btn" id="submit-button">Save</button>
+                </form>
+            </div>
+        </div>
+        <div class="modal" id="new-post-modal">
+            <div class="modal__container">
+                <h2 class="modal__container-title">New Post</h2>
+                <form name="new-post" class="modal__form" id="image-modal">
+                <label for="link-input" class="modal__label">
+                     Image link
+                    <input id="link-input" 
+                    type="url" 
+                    placeholder="Paste a link to the picture" 
+                    class="modal__input">
+                </label>
+                <label for="caption-input" class="modal__label"> 
+                    Caption
+                    <input id="caption-input" 
+                    type="text" 
+                    placeholder="Type your caption" 
+                    class="modal__input">
+                </label>
+                <button type="submit" class="modal__exit-btn" id="exit-image-modal"></button>
+                <button type="submit" class="modal__submit-btn" id="save-image">Save</button>
                 </form>
             </div>
         </div>
