@@ -79,4 +79,13 @@ background-image: url(../images/hoverliked.svg);
     font-size: 16px;
     max-width: 250px;
 }
+.card__like-btn{
+    background-repeat: no-repeat;
+}
+
+.delete__btn{
+    position: absolute;
+    top: 10px;
+    left: 250px;
+}
 }
