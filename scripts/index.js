@@ -31,7 +31,12 @@ const modalImageForm = newModal.querySelector(".modal__form"); // image Form
 const imageLink = newModal.querySelector("#link-input");
 const caption = newModal.querySelector("#caption-input");
 const imageSaveButton = newModal.querySelector("#save-image");
-const newModalCloseButton = newModal.querySelector(".modal__exit-btn");
+const newModalCloseButton = newModal.querySelector("#exit-image-modal");
+
+const previewModal = document.querySelector("#preview-modal");
+const previewImage = previewModal.querySelector(".modal__image");
+const previewCaption = previewModal.querySelector(".modal__caption");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close");
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
@@ -59,8 +64,10 @@ modalExitButton.addEventListener("click", () => {
 
 function handleImageFormSubmit(evt) {
   evt.preventDefault();
-  const inputValues = {name: caption.value, link: imageLink.src};
+  
+  const inputValues = {name: caption.value, link: imageLink.value};
   const cardsElement = getCardElement(inputValues);
+  console.log(inputValues.link);
   cardsList.prepend(cardsElement);
  closeModal(newModal);
 };
@@ -93,14 +100,36 @@ function getCardElement(data){
   .querySelector(".card")
   .cloneNode(true);
 const cardName = cardElement.querySelector("#card_title");
-const cardsImage = cardElement.querySelector("#card_image_content");
+const cardsImage = cardElement.querySelector(".card__image");
+const likeButton = cardElement.querySelector(".card__like-btn");
+const deleteButton = cardElement.querySelector(".delete__btn");
+
 cardName.textContent = data.name;
 cardsImage.alt = data.name;
 cardsImage.src = data.link;
+console.log(cardElement);
+
+likeButton.addEventListener("click", () => {
+  likeButton.classList.toggle("card__like-btn_liked");
+});
+
+deleteButton.addEventListener("click", () => {
+  cardElement.remove();
+});
+
+cardsImage.addEventListener("click", () => {
+  openModal(previewModal);
+  previewCaption.textContent = data.name;
+  previewImage.src = data.link;
+  previewImage.alt = data.name;
+});
+
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 return cardElement;
 };
-
 
 
 initialCards.forEach((card) => {

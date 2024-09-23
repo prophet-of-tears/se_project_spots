@@ -31,12 +31,13 @@
             </section>
            
             <section class="cards page__section">
-                <ul class="cards__list">
+                <ul class="cards__list">     <!--template for cardElement-->
                     <template id="card-template">
                     <li class="card">
                         <img src="" alt="" class="card__image" id="card_image_content">
+                        <button type="button" class="delete__btn"></button>
                         <div class="card__content">
-                            <h2 class="card__title" id="card_title" ></h2>
+                            <h2 class="card__title" id="card_title"></h2>
                             <button type="button" class="card__like-btn"></button>
                         </div>
                     </li>
@@ -47,7 +48,7 @@
         </main>
         <footer class="footer">
             <p class="footer__copywrite">2024 &copy; Spots</p>
-        </footer>
+        </footer>   <!--modal for editing profile-->
         <div class="modal" id="edit-profile-modal">
             <div class="modal__container">
                 <h2 class="modal__container-title">Edit Profile</h2>
@@ -64,7 +65,7 @@
                 <button type="submit" class="modal__submit-btn" id="submit-button">Save</button>
                 </form>
             </div>
-        </div>
+        </div>      <!--modal for cards-->
         <div class="modal" id="new-post-modal">
             <div class="modal__container">
                 <h2 class="modal__container-title">New Post</h2>
@@ -83,9 +84,16 @@
                     placeholder="Type your caption" 
                     class="modal__input">
                 </label>
-                <button type="submit" class="modal__exit-btn" id="exit-image-modal"></button>
+                <button type="button" class="modal__exit-btn" id="exit-image-modal"></button>
                 <button type="submit" class="modal__submit-btn" id="save-image">Save</button>
                 </form>
+            </div>
+        </div>        <!--modal for preview image-->
+        <div class="modal" id="preview-modal">
+            <div class="modal__content">
+                <button type="button" class="modal__close"></button>
+                <img class="modal__image" src="" alt="">
+                    <p class="modal__caption"></p>
             </div>
         </div>
     </div>
