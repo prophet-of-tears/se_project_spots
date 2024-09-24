@@ -63,12 +63,11 @@ profileExitButton.addEventListener("click", () => {
 
 function handleImageFormSubmit(evt) {
   evt.preventDefault();
-  evt.target.reset();
   const inputValues = {name: caption.value, link: imageLink.value};
   const cardsElement = getCardElement(inputValues);
-  console.log(inputValues.link);
   cardsList.prepend(cardsElement);
   closeModal(newPostModal);
+  evt.target.reset();
 };
 
 modalImageForm.addEventListener("submit", handleImageFormSubmit);
@@ -106,7 +105,6 @@ const deleteButton = cardElement.querySelector(".delete__btn");
 cardName.textContent = data.name;
 cardsImage.alt = data.name;
 cardsImage.src = data.link;
-console.log(cardElement);
 
 likeButton.addEventListener("click", () => {
   likeButton.classList.toggle("card__like-btn_liked");
