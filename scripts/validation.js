@@ -12,8 +12,6 @@ const modals = Array.from(document.querySelectorAll('.modal'));
 
 modals.forEach(modal => {
   const modalContent = modal.querySelector('.modal__container') || modal.querySelector('.modal__content');
-//   const modalButton = document.querySelectorAll(".modal__button");
-//   const previewModal = document.querySelector("#preview-modal");
   function handleModalClick(evt) {
     if (!modalContent.contains(evt.target)) {
       closeModal(modal);
