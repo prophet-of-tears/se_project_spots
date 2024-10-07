@@ -21,11 +21,11 @@
                 <div class="profile__column">
                     <h1 class="profile__name" id="profile-name">Bessie Coleman</h1>
                     <p class="profile__description" id="profile-description">Civil Aviator</p>
-                    <button class="profile__edit-btn" id="edit-modal" type="button">
+                    <button class="profile__edit-btn modal__button" id="edit-modal" type="button">
                         <img src="./images/pencil.svg" alt="pencil icon">edit profile
                     </button>
                 </div>
-                <button class="profile__add-btn" id="new-post" type="button">
+                <button class="profile__add-btn modal__button" id="new-post" type="button">
                     <img src="./images/plus.svg" alt="plus icon" class="profile__btn-logo">New post
                 </button>
             </section>
@@ -52,14 +52,27 @@
         <div class="modal" id="edit-profile-modal">
             <div class="modal__container">
                 <h2 class="modal__container-title">Edit Profile</h2>
-                <form name="edit__profile" class="modal__form" id="edit-profile-modal">
+                <form name="edit__profile" class="modal__form" id="edit-profile-modal" novalidate>
                 <label for="name-input" class="modal__label">
                      Name
-                    <input id="name-input" type="text" placeholder="Type your name" class="modal__input">
+                    <input id="name-input" 
+                    type="text" 
+                    placeholder="Type your name" 
+                    class="modal__input" 
+                    required 
+                    minlemgth="2" 
+                    maxlength="40">  
+                    <span id="name-input-error" class="modal__error"></span>
                 </label>
                 <label for="description-input" class="modal__label"> 
                     description
-                    <input id="description-input" type="text" placeholder="describe yourself" class="modal__input">
+                    <input id="description-input" 
+                    type="text" 
+                    placeholder="describe yourself" 
+                    class="modal__input" 
+                    required minlength="2" 
+                    maxlength="200">  
+                    <span id="description-input-error" class="modal__error"></span>
                 </label>
                 <button type="button" class="modal__exit-btn" id="exit-button"></button>
                 <button type="submit" class="modal__submit-btn" id="submit-button">Save</button>
@@ -69,23 +82,29 @@
         <div class="modal" id="new-post-modal">
             <div class="modal__container">
                 <h2 class="modal__container-title">New Post</h2>
-                <form name="new-post" class="modal__form" id="image-modal">
+                <form name="new-post" class="modal__form" id="image-modal" novalidate>
                 <label for="link-input" class="modal__label">
                      Image link
                     <input id="link-input" 
                     type="url" 
                     placeholder="Paste a link to the picture" 
-                    class="modal__input">
+                    class="modal__input"
+                    required > 
+                    <span  id="link-input-error" class="modal__error"></span>
                 </label>
                 <label for="caption-input" class="modal__label"> 
                     Caption
                     <input id="caption-input" 
                     type="text" 
                     placeholder="Type your caption" 
-                    class="modal__input">
+                    class="modal__input" 
+                    required 
+                    minlength="2"
+                    maxlength="30">  
+                    <span id="caption-input-error" class="modal__error"></span>
                 </label>
                 <button type="button" class="modal__exit-btn" id="exit-image-modal"></button>
-                <button type="submit" class="modal__submit-btn" id="save-image">Save</button>
+                <button type="submit" class="modal__submit-btn" id="save-image" >Save</button>
                 </form>
             </div>
         </div>        <!--modal for preview image-->
@@ -98,5 +117,6 @@
         </div>
     </div>
     <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
 </body>
 </html>

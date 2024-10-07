@@ -19,12 +19,13 @@ const profileModal = document.querySelector("#edit-profile-modal"); // edit moda
 const newPostModal = document.querySelector("#new-post-modal"); // image modal div
 
 const profileName = document.querySelector("#name-input");
-const profileDescription = document.querySelector("#description-input");
+const profileDescription = document.querySelector("#description-input"); 
 const profileForm = document.querySelector(".modal__form"); // edit form
 const nameOnPage = document.querySelector("#profile-name");
 const descriptionOnPage = document.querySelector("#profile-description");
 const profileExitButton = profileModal.querySelector("#exit-button"); // exit button for both modals
 
+const buttonElement = newPostModal.querySelector(".modal__submit-btn");
 const profileAddButton = document.querySelector(".profile__add-btn");
 const modalImageForm = newPostModal.querySelector(".modal__form"); // image Form
 const imageLink = newPostModal.querySelector("#link-input");
@@ -39,6 +40,7 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close");
 
 function openModal(profileModal) {
   profileModal.classList.add("modal_opened");
+ 
 }
 
 function closeModal(profileModal) {
@@ -66,8 +68,9 @@ function handleImageFormSubmit(evt) {
   const inputValues = {name: caption.value, link: imageLink.value};
   const cardsElement = getCardElement(inputValues);
   cardsList.prepend(cardsElement);
-  closeModal(newPostModal);
   evt.target.reset();
+  disabledButton(buttonElement, config);
+  closeModal(newPostModal);
 };
 
 modalImageForm.addEventListener("submit", handleImageFormSubmit);

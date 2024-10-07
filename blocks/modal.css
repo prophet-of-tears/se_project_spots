@@ -31,6 +31,7 @@
     box-sizing: border-box;
     border-radius: 8px;
 }
+ 
 
 .modal__container-title{
     margin: 0;
@@ -64,6 +65,14 @@
     padding: 16px 12px;
     cursor: pointer;
 }
+ .modal__input-type-error{
+    border-color: rgba(255, 0, 0, .6);
+}
+
+.modal__error{
+    color: rgba(255, 0, 0, .6);
+    margin-top: 8px;
+}
 
 .modal__input:hover{
     border-color:rgba(33, 33, 33, 1);
@@ -94,6 +103,10 @@
     background-color: rgb(33, 33, 33);
     border-radius: 8px;
     color:#fff;
+}
+
+.modal__submit-btn-disabled{
+    opacity: 0.6;
 }
 
 .modal__content{
