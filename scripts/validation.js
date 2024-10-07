@@ -8,35 +8,7 @@ const settings = {
     errorClass: "modal__error" 
 }
 
-const modals = Array.from(document.querySelectorAll('.modal'));
 
-modals.forEach(modal => {
-  const modalContent = modal.querySelector('.modal__container') || modal.querySelector('.modal__content');
-  function handleModalClick(evt) {
-    if (!modalContent.contains(evt.target)) {
-      closeModal(modal);
-    }
-  }
-
-  function handleEscapePress(evt) {
-    if (evt.key === "Escape") {
-      closeModal(modal);
-    }
-  }
-
-  
-
-  function closeModal(modal) {
-    modal.classList.remove("modal_opened");
-    modal.removeEventListener("click", handleModalClick);
-    document.removeEventListener("keydown", handleEscapePress);
-  }
-  modal.addEventListener("click", handleModalClick);
-  document.addEventListener("keydown", handleEscapePress);
-
-});
-
-   
 
 const showInputError = (formEl, inputElement, config, errorMessage) => {
     const errorMessageID = inputElement.id + "-error";
@@ -90,7 +62,7 @@ const setEventListeners = (formEl, config) => {
 
     inputList.forEach((inputElement) => {
         inputElement.addEventListener("input", function () {
-            checkInputValidity(formEl, inputElement);
+            checkInputValidity(formEl, inputElement, config);
             toggleButtonState(inputList, buttonElement, config);
         });
     });
@@ -98,7 +70,6 @@ const setEventListeners = (formEl, config) => {
 
 
 const enableValidation = (config) => {
-    console.log(config)
     const formList = (document.querySelectorAll(config.formSelector));
     formList.forEach((formEl) => {
         setEventListeners(formEl, config);

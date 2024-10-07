@@ -137,3 +137,30 @@ initialCards.forEach((card) => {
   cardsList.append(cardsElement);
   
 });
+
+
+function handleEscapePress(evt) {
+  if (evt.key === "Escape") {
+    const modal = document.querySelector(".modal_opened");
+    closeModal(modal);
+  }
+}
+
+function handleModalClick(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscapePress);
+  modal.addEventListener("click", handleModalClick);
+  
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscapePress); 
+  modal.removeEventListener("click", handleModalClick);
+} 
