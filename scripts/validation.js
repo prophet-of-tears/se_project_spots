@@ -8,7 +8,7 @@ const settings = {
     errorClass: "modal__error" 
 }
 
-
+ 
 
 const showInputError = (formEl, inputElement, config, errorMessage) => {
     const errorMessageID = inputElement.id + "-error";
