@@ -69,7 +69,7 @@ function handleImageFormSubmit(evt) {
   const cardsElement = getCardElement(inputValues);
   cardsList.prepend(cardsElement);
   evt.target.reset();
-  disabledButton(buttonElement, config);
+  disabledButton(buttonElement, settings);
   closeModal(newPostModal);
 };
 
