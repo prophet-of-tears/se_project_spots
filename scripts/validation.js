@@ -8,7 +8,17 @@ const settings = {
     errorClass: "modal__error" 
 }
 
- 
+function resetValidation(formEl, config) {
+    const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+    const buttonElement = formEl.querySelector(config.submitButtonSelector);
+  
+    inputList.forEach((inputElement) => {
+      hideInputError(formEl, inputElement, config);
+      checkInputValidity(formEl, inputElement, config);
+    });
+  
+    toggleButtonState(inputList, buttonElement, config);
+  }
 
 const showInputError = (formEl, inputElement, config, errorMessage) => {
     const errorMessageID = inputElement.id + "-error";

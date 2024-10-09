@@ -72,16 +72,14 @@ function handleImageFormSubmit(evt) {
 }
 
 
-
 modalImageForm.addEventListener("submit", handleImageFormSubmit);
 
 profileEditButton.addEventListener("click", () => {
   profileName.value = nameOnPage.textContent;
   profileDescription.value = descriptionOnPage.textContent;
-  enableValidation(settings);
   
   openModal(profileModal);
-  
+  resetValidation(profileModal,settings);
 });
 
 function handleProfileFormSubmit(evt) {
