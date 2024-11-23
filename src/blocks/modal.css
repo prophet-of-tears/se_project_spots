@@ -33,8 +33,9 @@
 }
 
 .modal__container-title {
+  font-family: "popins", Arial, Helvetica, sans-serif;
   margin: 0;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 32px;
   color: rgb(33, 33, 33);
 }
@@ -110,13 +111,8 @@
   color: #fff;
 }
 
-.modal__delete-btn {
-  width: 156px;
-  height: 52px;
-  margin: 32px 0 0;
-  font-size: 16px;
+.modal__submit-btn_type_delete {
   background-color: rgb(255, 101, 101);
-  border-radius: 8px;
   color: rgb(33, 33, 33);
   border: none;
 }
@@ -207,8 +203,16 @@
     right: 0;
     border-radius: 8px;
   }
+  .modal__submit-btn_type_delete {
+    width: 170px;
+  }
+  .modal__cancel-btn {
+    margin-top: 24px;
+  }
+  .modal__delete-exit-btn {
+    position: absolute;
+  }
   .modal__submit-btn {
-    width: 100%;
     margin-top: 24px;
   }
   .modal__image {

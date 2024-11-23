@@ -128,23 +128,27 @@ deleteExitBtn.addEventListener("click", () => {
   closeModal(deleteCardModal);
 });
 
+deleteCancel.addEventListener("click", () => {
+  closeModal(deleteCardModal);
+});
+
 function handleAvatarSubmit(evt) {
-  // form for Avatar changing
+  // form for changing Avatar
   evt.preventDefault();
   setButtonText(avatarSubmitButton, true);
   api
     .editAvatarInfo(avatarInput.value)
     .then((data) => {
       avatarImg.src = data.avatar;
+      closeModal(avatarModal);
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(avatarSubmitButton, false);
     });
-  closeModal(avatarModal);
 }
 
-function handleImageFormSubmit(evt) {
+function handleNewPost(evt) {
   //new post modal submit
   evt.preventDefault();
   setButtonText(cardSubmitButton, true);
@@ -169,7 +173,7 @@ function handleImageFormSubmit(evt) {
 
 avatarForm.addEventListener("submit", handleAvatarSubmit);
 
-modalImageForm.addEventListener("submit", handleImageFormSubmit);
+modalImageForm.addEventListener("submit", handleNewPost);
 
 profileEditButton.addEventListener("click", () => {
   profileName.value = nameOnPage.textContent;
@@ -183,7 +187,7 @@ function handleProfileFormSubmit(evt) {
   //form for profile name and description
   evt.preventDefault();
   //setButtonText(profileSubmitBtn, true);
-  profileSubmitBtn.textContent = "saving...";
+  profileSubmitBtn.textContent = "SAVING...";
   api
     .editUserInfo({ name: profileDescription.value, about: profileName.value })
     .then((data) => {
@@ -194,7 +198,7 @@ function handleProfileFormSubmit(evt) {
     .catch(console.error)
     .finally(() => {
       //setButtonText(profileSubmitBtn, false);
-      profileSubmitBtn.textContent = "save";
+      profileSubmitBtn.textContent = "SAVE";
     });
 }
 
@@ -209,7 +213,7 @@ function handleDeleteCard(cardElement, cardId) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
-  deleteSubmitBtn.textContent = "Deleting...";
+  deleteSubmitBtn.textContent = "DELETING...";
   api
     .deleteCard(selectedCardId)
     .then(() => {
@@ -218,7 +222,7 @@ function handleDeleteSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      deleteSubmitBtn.textContent = "Delete";
+      deleteSubmitBtn.textContent = "DELETE";
     });
 }
 
@@ -251,12 +255,15 @@ function getCardElement(data) {
   cardsImage.alt = data.name;
   cardsImage.src = data.link;
 
+  if (!data.isLiked) {
+    likeButton.classList.toggle("card__like-btn_liked");
+  }
+
   likeButton.addEventListener("click", (evt) =>
     handleLike(evt, data.isLiked, data._id)
   );
 
   deleteButton.addEventListener("click", () => {
-    console.log(data._id);
     handleDeleteCard(cardElement, data._id);
   });
 

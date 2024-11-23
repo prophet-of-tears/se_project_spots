@@ -19,6 +19,21 @@ class Api {
     });
   }
 
+  loadCards() {
+    fetch(`${this._baseUrl}/cards/${id}`, {
+      headers: this._headers,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        data.forEach((card) => {
+          const cardElement = getCardElement(card);
+          // Append cardElement to the DOM...
+          cardElement.append(card);
+        });
+      })
+      .catch(console.error);
+  }
+
   createNewCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",

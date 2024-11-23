@@ -9,8 +9,7 @@
 @import url(../blocks/card.css);
 @import url(../blocks/modal.css);
 
-
-@font-face {
+/* @font-face {
     font-family: "ubuntu-regular";
     font-style: normal;
     font-weight: 400;
@@ -34,20 +33,20 @@
   .page {
     font-family: "ubuntu-regular";
     font-size: 16px;
-  }
-  
-  .page__subtitle {
-    font-style: italic;
-  }
-  
-  .page__image {
-    width: 800px;
-  }
-  
-  .page__image_achievements {
-    background-image: url(../images/achievements.svg);
-    height: 444px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  } */
+
+.page__subtitle {
+  font-style: italic;
+}
+
+.page__image {
+  width: 800px;
+}
+
+.page__image_achievements {
+  background-image: url(../images/achievements.svg);
+  height: 444px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

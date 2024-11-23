@@ -7,17 +7,18 @@ export const validationConfig = {
   errorClass: "modal__error",
 };
 
+const buttonElement = validationConfig.submitButtonSelector;
+
 export function resetValidation(formEl, validationConfig) {
   const inputList = Array.from(
     formEl.querySelectorAll(validationConfig.inputSelector)
   );
-  const buttonElement = document.querySelector(
+  const buttonElement = formEl.querySelector(
     validationConfig.submitButtonSelector
   );
 
   inputList.forEach((inputElement) => {
     hideInputError(formEl, inputElement, validationConfig);
-    checkInputValidity(formEl, inputElement, validationConfig);
   });
 
   toggleButtonState(inputList, buttonElement, validationConfig);
