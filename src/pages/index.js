@@ -7,32 +7,32 @@ import {
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
 
-const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
+// const initialCards = [
+//   {
+//     name: "Val Thorens",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+//   },
+//   {
+//     name: "Restaurant terrace",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+//   },
+//   {
+//     name: "An outdoor cafe",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+//   },
+//   {
+//     name: "A very long bridge, over the forest",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+//   },
+//   {
+//     name: "Tunnel with morning light",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+//   },
+//   {
+//     name: "Tunnel with morning light",
+//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+//   },
+// ];
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -55,8 +55,7 @@ api
     nameOnPage.textContent = userInfo.about;
     descriptionOnPage.textContent = userInfo.name;
 
-    const profileAvatar = document.querySelector(".profile__avatar");
-    profileAvatar.src = userInfo.avatar;
+    avatarModalBtn.src = userInfo.avatar;
   })
   .catch(console.error);
 
@@ -186,8 +185,8 @@ profileEditButton.addEventListener("click", () => {
 function handleProfileFormSubmit(evt) {
   //form for profile name and description
   evt.preventDefault();
-  //setButtonText(profileSubmitBtn, true);
-  profileSubmitBtn.textContent = "SAVING...";
+  setButtonText(profileSubmitBtn, true);
+
   api
     .editUserInfo({ name: profileDescription.value, about: profileName.value })
     .then((data) => {
@@ -197,8 +196,7 @@ function handleProfileFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      //setButtonText(profileSubmitBtn, false);
-      profileSubmitBtn.textContent = "SAVE";
+      setButtonText(profileSubmitBtn, false);
     });
 }
 
