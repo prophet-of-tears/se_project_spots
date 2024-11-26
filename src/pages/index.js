@@ -163,6 +163,7 @@ function handleNewPost(evt) {
       evt.target.reset();
       closeModal(newPostModal);
       resetValidation(evt.target, validationConfig);
+      cardSubmitButton.disabled = true;
     })
     .catch(console.error)
     .finally(() => {
