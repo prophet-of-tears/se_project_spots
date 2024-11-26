@@ -55,7 +55,7 @@ api
     nameOnPage.textContent = userInfo.about;
     descriptionOnPage.textContent = userInfo.name;
 
-    avatarModalBtn.src = userInfo.avatar;
+    avatarImg.src = userInfo.avatar;
   })
   .catch(console.error);
 
@@ -226,7 +226,7 @@ function handleDeleteSubmit(evt) {
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
 
-function handleLike(evt, data, id) {
+function handleLike(evt, id) {
   // handling Likes
   const likeButton = evt.target;
   const isLiked = likeButton.classList.contains("card__like-btn_liked");
@@ -253,13 +253,11 @@ function getCardElement(data) {
   cardsImage.alt = data.name;
   cardsImage.src = data.link;
 
-  if (!data.isLiked) {
-    likeButton.classList.toggle("card__like-btn_liked");
+  if (data.isLiked) {
+    likeButton.classList.add("card__like-btn_liked");
   }
 
-  likeButton.addEventListener("click", (evt) =>
-    handleLike(evt, data.isLiked, data._id)
-  );
+  likeButton.addEventListener("click", (evt) => handleLike(evt, data._id));
 
   deleteButton.addEventListener("click", () => {
     handleDeleteCard(cardElement, data._id);

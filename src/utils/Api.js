@@ -22,15 +22,15 @@ class Api {
   }
 
   loadCards() {
-    fetch(`${this._baseUrl}/cards/${id}`, {
+    fetch(`${this._baseUrl}/cards/`, {
       headers: this._headers,
     })
       .then((res) => res.json())
       .then((data) => {
         data.forEach((card) => {
           const cardElement = getCardElement(card);
-          // Append cardElement to the DOM...
-          cardElement.append(card);
+
+          cardElement.prepend(card);
         });
       })
       .catch(console.error);
@@ -111,7 +111,7 @@ class Api {
 
   handleLike(isLiked, id) {
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
-      method: isLiked ? "PUT" : "DELETE",
+      method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
