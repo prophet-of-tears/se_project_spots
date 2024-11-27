@@ -10,3 +10,16 @@ export function setButtonText(
     btn.textContent = defaultText;
   }
 }
+
+export function setSubmitText(
+  btn,
+  isLoading,
+  defaultText = "DELETE",
+  loadingText = "DELETING..."
+) {
+  if (isLoading) {
+    btn.textContent = loadingText;
+  } else {
+    btn.textContent = defaultText;
+  }
+}
