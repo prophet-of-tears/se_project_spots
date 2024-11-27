@@ -69,7 +69,7 @@ const toggleButtonState = (inputList, buttonElement, validationConfig) => {
   }
 };
 
-const disabledButton = (buttonElement, validationConfig) => {
+export const disabledButton = (buttonElement, validationConfig) => {
   buttonElement.disabled = true;
   buttonElement.classList.add(validationConfig.inactiveButtonClass);
 };

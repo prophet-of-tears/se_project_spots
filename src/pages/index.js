@@ -6,7 +6,7 @@ import {
 } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
-import { setSubmitText } from "../utils/helpers.js";
+import { disabledButton } from "../scripts/validation.js";
 
 // const initialCards = [
 //   {
@@ -163,8 +163,8 @@ function handleNewPost(evt) {
       cardsList.prepend(cardsElement);
       evt.target.reset();
       closeModal(newPostModal);
-      resetValidation(evt.target, validationConfig);
-      disableButton(cardSubmitButton);
+
+      disabledButton(cardSubmitButton, validationConfig);
     })
     .catch(console.error)
     .finally(() => {
@@ -213,7 +213,7 @@ function handleDeleteCard(cardElement, cardId) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
-  setSubmitText(deleteSubmitBtn, true);
+  setButtonText(deleteSubmitBtn, true, "DELETE", "DELETING...");
   api
     .deleteCard(selectedCardId)
     .then(() => {
@@ -222,7 +222,7 @@ function handleDeleteSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setSubmitText(deleteSubmitBtn, false);
+      setButtonText(deleteSubmitBtn, false, "DELETE", "DELETING...");
     });
 }
 
